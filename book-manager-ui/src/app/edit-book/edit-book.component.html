@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="onFormEdit()" fxLayout="column" fxLayoutAlign="space-around center">
+
+    <mat-form-field>
+        <mat-label>Id</mat-label>
+        <input matInput formControlName="id">
+        <mat-icon class="search_icon" (click)="onSearch()">search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput formControlName="author">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input matInput type="number" formControlName="year">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+            <mat-option *ngFor="let status of statuses" [value]="status.value">{{status.viewValue}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="isDisabled">Edit Book</button>
+</form>
